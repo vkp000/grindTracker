@@ -28,12 +28,26 @@ body{
 /* ===== TOP BAR ===== */
 #topbar{
   height:44px;
-  background:linear-gradient(180deg,#0b1220,#020617);
+  background:var(--panel);          /* light mode friendly */
   border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:flex-end;
-  gap:12px;padding:0 12px;
+  display:flex;
+  align-items:center;               /* ✅ vertical alignment fix */
+  justify-content:flex-end;
+  gap:12px;
+  padding:0 12px;
 }
-#progressCount{font-size:13px}
+
+/* Dark mode override */
+body.dark #topbar{
+  background:linear-gradient(180deg,#0b1220,#020617);
+}
+
+#progressCount{
+  font-size:13px;
+  font-weight:500;
+  white-space:nowrap;
+}
+
 #toggle{
   cursor:pointer;border:1px solid var(--border);
   background:transparent;color:var(--text);
@@ -156,6 +170,7 @@ pre{
   <div id="sidebar"><div id="tree"></div></div>
   <div id="view">📘 Select a file</div>
 </div>
+
 
 <script>
 const ROOT="StriverA2Z";
