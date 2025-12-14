@@ -1,0 +1,58 @@
+[
+  {
+    "name": "01_LargestElementInAnArray.java",
+    "type": "file"
+  },
+  {
+    "name": "02_SecondLargestElementInAnArrayWithoutSorting.java",
+    "type": "file"
+  },
+  {
+    "name": "03_CheckIfTheArrayIsSorted.java",
+    "type": "file"
+  },
+  {
+    "name": "04_RemoveDuplicatesFromSortedArray.java",
+    "type": "file"
+  },
+  {
+    "name": "05_LeftRotateAnArrayByOnePlace.java",
+    "type": "file"
+  },
+  {
+    "name": "06_LeftRotateAnArrayByDPosition.java",
+    "type": "file"
+  },
+  {
+    "name": "07_MovesZerosToEnd.java",
+    "type": "file"
+  },
+  {
+    "name": "08_LinearSearch.java",
+    "type": "file"
+  },
+  {
+    "name": "09_FindTheUnion.java",
+    "type": "file"
+  },
+  {
+    "name": "10_FindMissingNumberInAnArray.java",
+    "type": "file"
+  },
+  {
+    "name": "11_MaximumConsecutiveOnes.java",
+    "type": "file"
+  },
+  {
+    "name": "12_NumberThatAppearsOnceAndOtherNumbersTwice.java",
+    "type": "file"
+  },
+  {
+    "name": "13_LongestSubArrayWithGivenSumKPositives.java",
+    "type": "file"
+  },
+  {
+    "name": "14_LongestSubarrayWithSumKPositivesNegatives.java",
+    "type": "file"
+  }
+]

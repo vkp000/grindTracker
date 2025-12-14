@@ -1,0 +1,38 @@
+[
+  {
+    "name": "01_UnderstandRecursionByPrintSomethingNTimes.java",
+    "type": "file"
+  },
+  {
+    "name": "02_PrintNameNTimesUsingRecursion.java",
+    "type": "file"
+  },
+  {
+    "name": "03_Print1ToNUsingRecursion.java",
+    "type": "file"
+  },
+  {
+    "name": "04_PrintNTo1UsingRecursion.java",
+    "type": "file"
+  },
+  {
+    "name": "05_SumOfFirstNNumbers.java",
+    "type": "file"
+  },
+  {
+    "name": "06_FactorialOfNNumbers.java",
+    "type": "file"
+  },
+  {
+    "name": "07_ReverseAnArray.java",
+    "type": "file"
+  },
+  {
+    "name": "08_CheckIfAStringIsPalindromeOrNot.java",
+    "type": "file"
+  },
+  {
+    "name": "09_FibonacciNumber.java",
+    "type": "file"
+  }
+]

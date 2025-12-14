@@ -1,0 +1,54 @@
+[
+  {
+    "name": "01_BinarySearchToFindXInSortedArray.java",
+    "type": "file"
+  },
+  {
+    "name": "02_ImplementLoweerBound.java",
+    "type": "file"
+  },
+  {
+    "name": "03_ImplementUpperBound.java",
+    "type": "file"
+  },
+  {
+    "name": "04_SearchInsertPosition.java",
+    "type": "file"
+  },
+  {
+    "name": "05_FloorCeilInSortedArray.java",
+    "type": "file"
+  },
+  {
+    "name": "06_FindFirstAndLastOccurenceOfANumberInSortedArray.java",
+    "type": "file"
+  },
+  {
+    "name": "07_CountOccurenceOfANumberInSortedArrayWithDuplicates.java",
+    "type": "file"
+  },
+  {
+    "name": "08_SearchInRotatedSortedArrayI.java",
+    "type": "file"
+  },
+  {
+    "name": "09_SearchInRotatedSortedArrayIl.java",
+    "type": "file"
+  },
+  {
+    "name": "10_FindMinimumInRotatedSortedArray.java",
+    "type": "file"
+  },
+  {
+    "name": "11_FindoutHowManyTimesHasAnArrayRotated.java",
+    "type": "file"
+  },
+  {
+    "name": "12_SingleElementInASortedArray.java",
+    "type": "file"
+  },
+  {
+    "name": "13_FindPeakElement.java",
+    "type": "file"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "01_InfixToPostfixConversionUsingStack.java",
+    "type": "file"
+  },
+  {
+    "name": "02_PrefixToInfixConversion.java",
+    "type": "file"
+  },
+  {
+    "name": "03_PrefixToPostfixConversion.java",
+    "type": "file"
+  },
+  {
+    "name": "04_PostfixToPrefixConversion.java",
+    "type": "file"
+  },
+  {
+    "name": "05_PostfixToInfix.java",
+    "type": "file"
+  },
+  {
+    "name": "06_ConvertInfixToPrefixNotation.java",
+    "type": "file"
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "01_RemoveOutermostParentheses.java",
+    "type": "file"
+  },
+  {
+    "name": "02_ReverseWordsInGivenString.java",
+    "type": "file"
+  },
+  {
+    "name": "03_LongestOddNumberInString.java",
+    "type": "file"
+  },
+  {
+    "name": "04_LongestCommonPrefix.java",
+    "type": "file"
+  },
+  {
+    "name": "05_IsomorphicStrings.java",
+    "type": "file"
+  },
+  {
+    "name": "06_CheckOneStringIsRotationOfAnother.java",
+    "type": "file"
+  },
+  {
+    "name": "07_CheckIf2StringsAreAnagramOfEachOther.java",
+    "type": "file"
+  }
+]

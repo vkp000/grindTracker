@@ -1,0 +1,50 @@
+[
+  {
+    "name": "01_PascalsTraingle.java",
+    "type": "file"
+  },
+  {
+    "name": "02_MajorityElementsNBy3Times.java",
+    "type": "file"
+  },
+  {
+    "name": "03_3SumProblem.java",
+    "type": "file"
+  },
+  {
+    "name": "04_4SumProblem.java",
+    "type": "file"
+  },
+  {
+    "name": "05_LargestSubarrayWithZeroSum.java",
+    "type": "file"
+  },
+  {
+    "name": "06_CountNumberOfSubarraysWithGivenXorK.java",
+    "type": "file"
+  },
+  {
+    "name": "07_MergeOverlappingSubintervals.java",
+    "type": "file"
+  },
+  {
+    "name": "08_MergedTwoSortedArrayWithoutExtraSpace.java",
+    "type": "file"
+  },
+  {
+    "name": "09_FindRepeatingAndMissingNumber.java",
+    "type": "file"
+  },
+  {
+    "name": "10_CountInversions.java",
+    "type": "file"
+  },
+  {
+    "name": "11_ReversePairs.java",
+    "type": "file"
+  },
+  {
+    "name": "12_MaximumProductSubarray.java",
+    "type": "file"
+  }
+]

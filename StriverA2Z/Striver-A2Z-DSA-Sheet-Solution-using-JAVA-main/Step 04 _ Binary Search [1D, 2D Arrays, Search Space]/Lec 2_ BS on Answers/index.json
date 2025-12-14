@@ -1,0 +1,58 @@
+[
+  {
+    "name": "01_FindSquareRootOfANumberInLogn.java",
+    "type": "file"
+  },
+  {
+    "name": "02_FindNthRootOfANumberUsingBinarySearch.java",
+    "type": "file"
+  },
+  {
+    "name": "03_KokoEatingBananas.java",
+    "type": "file"
+  },
+  {
+    "name": "04_MinimumDaysToMakeMBouquets.java",
+    "type": "file"
+  },
+  {
+    "name": "05_FindTheSmallestDivisor.java",
+    "type": "file"
+  },
+  {
+    "name": "06_CapacityToShipPackageWithingDDays.java",
+    "type": "file"
+  },
+  {
+    "name": "07_kthMissingPositiveNymber.java",
+    "type": "file"
+  },
+  {
+    "name": "08_AgressiveCows.java",
+    "type": "file"
+  },
+  {
+    "name": "09_BookAllocationProblem.java",
+    "type": "file"
+  },
+  {
+    "name": "10_SplitArrayLargetsSum.java",
+    "type": "file"
+  },
+  {
+    "name": "11_PaintersPartintion.java",
+    "type": "file"
+  },
+  {
+    "name": "12_MinimizeMaxDistanceToGasStation.java",
+    "type": "file"
+  },
+  {
+    "name": "13_MedianOf2SortedArrays.java",
+    "type": "file"
+  },
+  {
+    "name": "14_KthElementOf2SortedArray.java",
+    "type": "file"
+  }
+]

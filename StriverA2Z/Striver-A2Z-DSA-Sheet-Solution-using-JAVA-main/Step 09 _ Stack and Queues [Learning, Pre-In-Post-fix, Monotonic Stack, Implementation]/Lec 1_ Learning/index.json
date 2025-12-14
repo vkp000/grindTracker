@@ -1,0 +1,34 @@
+[
+  {
+    "name": "01_ImplementStackUsingArrays.java",
+    "type": "file"
+  },
+  {
+    "name": "02_ImplementQueueUsingArrays.java",
+    "type": "file"
+  },
+  {
+    "name": "03_ImplementStackUsingQueue.java",
+    "type": "file"
+  },
+  {
+    "name": "04_ImplementQueueUsingStack.java",
+    "type": "file"
+  },
+  {
+    "name": "05_ImplementStackUsingLinkedlist.java",
+    "type": "file"
+  },
+  {
+    "name": "06_ImplementQueueUsingLinkedlist.java",
+    "type": "file"
+  },
+  {
+    "name": "07_CheckForBalancedParanthesis.java",
+    "type": "file"
+  },
+  {
+    "name": "08_ImplementMinStack.java",
+    "type": "file"
+  }
+]

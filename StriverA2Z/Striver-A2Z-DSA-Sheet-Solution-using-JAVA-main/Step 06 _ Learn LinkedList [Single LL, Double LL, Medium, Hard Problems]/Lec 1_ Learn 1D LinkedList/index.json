@@ -1,0 +1,22 @@
+[
+  {
+    "name": "01_Introduction to LinkedList, learn about struct, and how is node represented.md",
+    "type": "file"
+  },
+  {
+    "name": "02_InsertingANodeInLinkedList.java",
+    "type": "file"
+  },
+  {
+    "name": "03_DeletingANodeInLinkedList.java",
+    "type": "file"
+  },
+  {
+    "name": "04_FindTheLengthOfLinkedList.java",
+    "type": "file"
+  },
+  {
+    "name": "05_SearchAnElementInLL.java",
+    "type": "file"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "01_UserInputOutput.java",
+    "type": "file"
+  },
+  {
+    "name": "02_DataTypes.java",
+    "type": "file"
+  },
+  {
+    "name": "03_IfElseStatements.java",
+    "type": "file"
+  },
+  {
+    "name": "04_SwitchStatement.java",
+    "type": "file"
+  },
+  {
+    "name": "05_What are arrays, strings_.md",
+    "type": "file"
+  },
+  {
+    "name": "06_ForLoops.java",
+    "type": "file"
+  },
+  {
+    "name": "07_WhileLoops.java",
+    "type": "file"
+  },
+  {
+    "name": "08_FunctionsPassByReferenceAndValue.java",
+    "type": "file"
+  },
+  {
+    "name": "09_Time Complexity [Learn Basics, and then analyse in next Steps].md",
+    "type": "file"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "name": "01_2SumProblem.java",
+    "type": "file"
+  },
+  {
+    "name": "02_SortAnArrayOf0s1sAnd2s.java",
+    "type": "file"
+  },
+  {
+    "name": "03_MajorityElementGreaterThanNBy2Times.java",
+    "type": "file"
+  },
+  {
+    "name": "04_KandaneAlgorithmOrMaximumSubarraySum.java",
+    "type": "file"
+  },
+  {
+    "name": "05_PrintSubarrayWithMaximumSubarraySum.java",
+    "type": "file"
+  },
+  {
+    "name": "06_StockBuyAndSell.java",
+    "type": "file"
+  },
+  {
+    "name": "07_RearrangeArrayInAlternatePositiveAndNegativeItem.java",
+    "type": "file"
+  },
+  {
+    "name": "08_NextPermutation.java",
+    "type": "file"
+  },
+  {
+    "name": "09_LeadersInAnArrayProblem.java",
+    "type": "file"
+  },
+  {
+    "name": "10_LongestConsecutiveSequenceInAnArray.java",
+    "type": "file"
+  },
+  {
+    "name": "11_SetMatrixZeros.java",
+    "type": "file"
+  },
+  {
+    "name": "12_RotateMatrixBy90Degree.java",
+    "type": "file"
+  },
+  {
+    "name": "13_PrintTheMatrixInSpiralManner.java",
+    "type": "file"
+  },
+  {
+    "name": "14_CountSubarraysWithGivenSum.java",
+    "type": "file"
+  }
+]

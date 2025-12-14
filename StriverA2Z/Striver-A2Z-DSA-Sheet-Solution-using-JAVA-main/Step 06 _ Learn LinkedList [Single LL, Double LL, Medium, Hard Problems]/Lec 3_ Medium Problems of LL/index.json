@@ -1,0 +1,62 @@
+[
+  {
+    "name": "01_MiddleOfALinkedList.java",
+    "type": "file"
+  },
+  {
+    "name": "02_ReverseLinkedListIterative.java",
+    "type": "file"
+  },
+  {
+    "name": "03_ReverseLLRecursive.java",
+    "type": "file"
+  },
+  {
+    "name": "04_DetectALoopInLL.java",
+    "type": "file"
+  },
+  {
+    "name": "05_FindTheStartingPointInLL.java",
+    "type": "file"
+  },
+  {
+    "name": "06_LengthOfLoopInLL.java",
+    "type": "file"
+  },
+  {
+    "name": "07_CheckIfLLIsPalindromeOrNot.java",
+    "type": "file"
+  },
+  {
+    "name": "08_SegrregateOddAndEvenNodesInLL.java",
+    "type": "file"
+  },
+  {
+    "name": "09_RemoveNthNodeFromBackOfTheLL.java",
+    "type": "file"
+  },
+  {
+    "name": "10_DeleteMiddleNodeOfLL.java",
+    "type": "file"
+  },
+  {
+    "name": "11_SortLL.java",
+    "type": "file"
+  },
+  {
+    "name": "12_SortLL0s1sAnd2sByChangingLinks.java",
+    "type": "file"
+  },
+  {
+    "name": "13_FindTheIntersectionPointOfYLL.java",
+    "type": "file"
+  },
+  {
+    "name": "14_Add1ToANumberRepresentedByLL.java",
+    "type": "file"
+  },
+  {
+    "name": "15_Add2NumbersInLL.java",
+    "type": "file"
+  }
+]

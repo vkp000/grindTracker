@@ -1,0 +1,46 @@
+[
+  {
+    "name": "01_NextGreaterElement.java",
+    "type": "file"
+  },
+  {
+    "name": "02_NextGreaterElement2.java",
+    "type": "file"
+  },
+  {
+    "name": "03_NextSmallerElement.java",
+    "type": "file"
+  },
+  {
+    "name": "04_NumberOfNGEsToTheRight.java",
+    "type": "file"
+  },
+  {
+    "name": "05_TrappingRainwater.java",
+    "type": "file"
+  },
+  {
+    "name": "06_SumOfSubarrayMinimum.java",
+    "type": "file"
+  },
+  {
+    "name": "07_AsteroidCollision.java",
+    "type": "file"
+  },
+  {
+    "name": "08_SumOfSubarrayRanges.java",
+    "type": "file"
+  },
+  {
+    "name": "09_RemoveKDigits.java",
+    "type": "file"
+  },
+  {
+    "name": "10_LargestRectangleInHistogram.java",
+    "type": "file"
+  },
+  {
+    "name": "11_MaximalRectangles.java",
+    "type": "file"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "name": "01_IntroductionToBitManipulation.java",
+    "type": "file"
+  },
+  {
+    "name": "02_CheckIfTheIthBitIsSetOrNot.java",
+    "type": "file"
+  },
+  {
+    "name": "03_CheckIfANumberIsOddOrNot.java",
+    "type": "file"
+  },
+  {
+    "name": "04_CheckIfANumberIsPowerOf2OrNot.java",
+    "type": "file"
+  },
+  {
+    "name": "05_CountNumberOfSetBits.java",
+    "type": "file"
+  },
+  {
+    "name": "06_SetUnsetTheRightmostUnsetBit.java",
+    "type": "file"
+  },
+  {
+    "name": "07_SwapTwoNumbers.java",
+    "type": "file"
+  },
+  {
+    "name": "09_DivideTwoIntegerWithoutUsingMultiplicationDivisionAndModOperator.java",
+    "type": "file"
+  }
+]

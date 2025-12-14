@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Lec 1_ Things to Know in Java or any language",
+    "type": "folder"
+  },
+  {
+    "name": "Lec 2_ Build-up Logical Thinking",
+    "type": "folder"
+  },
+  {
+    "name": "Lec 3_ Learn STL, Java-Collections or similar thing in your language",
+    "type": "folder"
+  },
+  {
+    "name": "Lec 4_ Know Basic Maths",
+    "type": "folder"
+  },
+  {
+    "name": "Lec 5_ Learn Basic Recursion",
+    "type": "folder"
+  },
+  {
+    "name": "Lec 6_ Learn Basic Hashing",
+    "type": "folder"
+  }
+]

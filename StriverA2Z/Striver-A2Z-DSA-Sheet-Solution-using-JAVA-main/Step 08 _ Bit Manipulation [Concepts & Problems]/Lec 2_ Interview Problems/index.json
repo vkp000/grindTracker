@@ -1,0 +1,22 @@
+[
+  {
+    "name": "01_CountNumberOfBitsToBeFlippedToConvertAToB.java",
+    "type": "file"
+  },
+  {
+    "name": "02_FindTheNumbersThatAppearsOddNumberOfTimes.java",
+    "type": "file"
+  },
+  {
+    "name": "03_PowerSet.java",
+    "type": "file"
+  },
+  {
+    "name": "04_FindXorOfNumbersFromLToR.java",
+    "type": "file"
+  },
+  {
+    "name": "05_FindTheTwoNumbersAppearingOddNumberOfTimes.java",
+    "type": "file"
+  }
+]

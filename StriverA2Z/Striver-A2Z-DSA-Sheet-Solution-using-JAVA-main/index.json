@@ -1,0 +1,42 @@
+[
+  {
+    "name": "README.md",
+    "type": "file"
+  },
+  {
+    "name": "Step 01 _ Learn the basics",
+    "type": "folder"
+  },
+  {
+    "name": "Step 02 _ Learn Important Sorting Techniques",
+    "type": "folder"
+  },
+  {
+    "name": "Step 03 _ Solve Problems on Arrays [Easy -_ Medium -_ Hard]",
+    "type": "folder"
+  },
+  {
+    "name": "Step 04 _ Binary Search [1D, 2D Arrays, Search Space]",
+    "type": "folder"
+  },
+  {
+    "name": "Step 05 _ Strings [Basic and Medium]",
+    "type": "folder"
+  },
+  {
+    "name": "Step 06 _ Learn LinkedList [Single LL, Double LL, Medium, Hard Problems]",
+    "type": "folder"
+  },
+  {
+    "name": "Step 07 _ Recursion [PatternWise]",
+    "type": "folder"
+  },
+  {
+    "name": "Step 08 _ Bit Manipulation [Concepts & Problems]",
+    "type": "folder"
+  },
+  {
+    "name": "Step 09 _ Stack and Queues [Learning, Pre-In-Post-fix, Monotonic Stack, Implementation]",
+    "type": "folder"
+  }
+]

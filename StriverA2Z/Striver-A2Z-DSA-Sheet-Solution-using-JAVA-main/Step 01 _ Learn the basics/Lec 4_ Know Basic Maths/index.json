@@ -1,0 +1,30 @@
+[
+  {
+    "name": "01_CountDigits.java",
+    "type": "file"
+  },
+  {
+    "name": "02_ReverseANumber.java",
+    "type": "file"
+  },
+  {
+    "name": "03_CheckPalindrome.java",
+    "type": "file"
+  },
+  {
+    "name": "04_GcdOrHcf.java",
+    "type": "file"
+  },
+  {
+    "name": "05_ArmstrongNumber.java",
+    "type": "file"
+  },
+  {
+    "name": "06_PrintAllDivisors.java",
+    "type": "file"
+  },
+  {
+    "name": "07_CheckForPrime.java",
+    "type": "file"
+  }
+]

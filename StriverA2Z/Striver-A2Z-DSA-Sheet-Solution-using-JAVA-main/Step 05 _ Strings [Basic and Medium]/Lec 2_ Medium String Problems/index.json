@@ -1,0 +1,34 @@
+[
+  {
+    "name": "01_SortCharactersByFrequency.java",
+    "type": "file"
+  },
+  {
+    "name": "02_MaximumNestingDepthOfParanthesis.java",
+    "type": "file"
+  },
+  {
+    "name": "03_RomanNumberToIntegerAndViceVersa.java",
+    "type": "file"
+  },
+  {
+    "name": "04_ImplementAtoi.java",
+    "type": "file"
+  },
+  {
+    "name": "05_CountNumberOfSubstrings.java",
+    "type": "file"
+  },
+  {
+    "name": "06_LongestPalindromicSubstring.java",
+    "type": "file"
+  },
+  {
+    "name": "07_SumOfBeautyOfAllSubstring.java",
+    "type": "file"
+  },
+  {
+    "name": "08_ReverseEveryWordInString.java",
+    "type": "file"
+  }
+]
