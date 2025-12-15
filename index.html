@@ -1,366 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<title>Striver A2Z DSA – Java Viewer</title>
+  <meta charset="UTF-8" />
+  <title>Striver A2Z DSA – Java Viewer</title>
 
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-<link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-java.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-java.min.js"></script>
 
-<style>
-:root{
-  --bg:#ffffff;--panel:#f5f5f5;--text:#111;
-  --hover:#e5e7eb;--active:#2563eb;--border:#ddd;
-}
-body.dark{
-  --bg:#0f172a;--panel:#020617;--text:#e5e7eb;
-  --hover:#1e293b;--active:#1d4ed8;--border:#1e293b;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;height:100vh;display:flex;flex-direction:column;
-  font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);
-}
+  <style>
+    :root {
+      --bg: #ffffff;
+      --panel: #f5f5f5;
+      --text: #111;
+      --hover: #e5e7eb;
+      --active: #2563eb;
+      --border: #ddd;
+      --yellow: #facc15;
+    }
 
-/* ===== TOP BAR ===== */
-#topbar{
-  height:44px;
-  background:linear-gradient(180deg,#0b1220,#020617);
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:flex-end;
-  gap:12px;padding:0 12px;
-}
-#progressCount{font-size:13px}
-#toggle{
-  cursor:pointer;border:1px solid var(--border);
-  background:transparent;color:var(--text);
-  border-radius:6px;padding:4px 10px;
-}
+    body.dark {
+      --bg: #0f172a;
+      --panel: #020617;
+      --text: #e5e7eb;
+      --hover: #1e293b;
+      --active: #1d4ed8;
+      --border: #1e293b;
+    }
 
-/* ===== LAYOUT ===== */
-#main{flex:1;display:flex;overflow:hidden}
+    * {
+      box-sizing: border-box
+    }
 
-/* ===== SIDEBAR ===== */
-#sidebar{
-  width:330px;background:var(--panel);
-  border-right:1px solid var(--border);
-  overflow-y:auto;
-}
-#tree{padding:8px;font-size:13.5px}
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
 
-/* ===== TREE ===== */
-.tree-item{
-  display:flex;align-items:center;gap:6px;
-  padding:4px 6px;border-radius:6px;
-  cursor:pointer;white-space:nowrap;overflow:hidden;
-}
-.tree-item:hover{background:var(--hover)}
-.tree-item.active{background:var(--active);color:white}
+    /* ===== TOP BAR ===== */
+    #topbar {
+      height: 44px;
+      background: linear-gradient(180deg, #0b1220, #020617);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      padding: 0 12px;
+    }
 
-.chevron{width:12px}
-.star{width:14px;text-align:center;cursor:pointer;opacity:.35}
-.star.solved{color:#facc15;opacity:1}
-.icon{width:16px}
-.label{flex:1;overflow:hidden;text-overflow:ellipsis}
+    #progressCount {
+      font-size: 13px
+    }
 
-.children{
-  margin-left:18px;border-left:1px solid var(--border);
-  padding-left:6px;
-}
+    #toggle {
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      border-radius: 6px;
+      padding: 4px 10px;
+    }
 
-/* ===== VIEW ===== */
-#view{flex:1;padding:20px;overflow-y:auto}
+    /* ===== LAYOUT ===== */
+    #main {
+      flex: 1;
+      display: flex;
+      overflow: hidden
+    }
 
-/* ===== FILE HEADER ===== */
-.file-header{
-  display:flex;align-items:center;gap:10px;
-  padding:12px 14px;margin-bottom:12px;
-  border-radius:8px;
-  font-size:22px;font-weight:600;
-  background:rgba(0,0,0,.25);
-}
-body:not(.dark) .file-header{background:#eef2f7}
+    /* ===== SIDEBAR ===== */
+    #sidebar {
+      width: 330px;
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+    }
 
-/* ===== EDITOR ===== */
-.editor-actions{
-  display:flex;justify-content:flex-end;align-items:center;
-  gap:8px;margin-bottom:10px;
-}
+    #tree {
+      padding: 8px;
+      font-size: 13.5px
+    }
 
-.link-logo{
-  width:40px;height:40px;
-  border-radius:4px;
-  cursor:pointer;
-  background:#fff;
-  padding:2px;
-  border:1px solid var(--border);
-}
+    /* ===== TREE ===== */
+    .tree-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 6px;
+      border-radius: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+    }
 
-.copy-btn{
-  font-size:12px;padding:12px 20px;border-radius:6px;
-  border:1px solid var(--border);
-  background:rgba(0,0,0,.6);color:white;cursor:pointer;
-  
-}
+    .tree-item:hover {
+      background: var(--hover)
+    }
 
-.editor-star{
-  font-size:38px;
-  cursor:pointer;
-  opacity:.4;
-  width:32px;
-  height:28px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:6px;
+    .tree-item.active {
+      background: var(--active);
+      color: white
+    }
 
-  /* smooth feel */
-  transition: color .15s ease, opacity .15s ease, transform .1s ease;
-}
+    .chevron {
+      width: 12px
+    }
 
-.editor-star:hover{
-  color:#facc15;
-  opacity:0.6;
-  transform: scale(1.08);
-}
+    .icon {
+      width: 16px
+    }
 
-/* solved / starred state */
-.editor-star.solved{
-  color:#facc15;
-  opacity:1;
-}
+    .label {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis
+    }
 
-pre{
-  background:#0d1117!important;color:#c9d1d9;
-  padding:16px;border-radius:8px;
-  overflow-x:auto;line-height:1.6;
-}
-.token.comment{
-  color:rgba(106,153,85,.85)!important;
-  font-style:italic;
-}
-</style>
+    .children {
+      margin-left: 18px;
+      border-left: 1px solid var(--border);
+      padding-left: 6px;
+    }
+
+    /* ===== CHECKBOX ===== */
+    .cb {
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--yellow);
+      border-radius: 3px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .cb.checked {
+      background: var(--yellow)
+    }
+
+    .cb.checked::after {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: 0px;
+      width: 5px;
+      height: 9px;
+      border: solid #000;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    #view {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto
+    }
+
+
+    /* ===== BIGGER EDITOR CHECKBOX ===== */
+    .editor-checkbox {
+      width: 38px;
+      height: 38px;
+      border-width: 3px;
+    }
+
+    .editor-checkbox.checked::after {
+      left: 11px;
+      top: 5px;
+      width: 8px;
+      height: 12px;
+      border-width: 0 3px 3px 0;
+    }
+
+    /* ===== FILE HEADER ===== */
+    .file-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      font-size: 22px;
+      font-weight: 600;
+      background: rgba(0, 0, 0, .25);
+    }
+
+    body:not(.dark) .file-header {
+      background: #eef2f7
+    }
+
+    /* ===== EDITOR ACTIONS ===== */
+    .editor-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .link-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      cursor: pointer;
+      background: #fff;
+      padding: 2px;
+      border: 1px solid var(--border);
+    }
+
+    .copy-btn {
+      font-size: 12px;
+      padding: 12px 20px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: rgba(0, 0, 0, .6);
+      color: white;
+      cursor: pointer;
+    }
+
+    .editor-checkbox {
+      margin-left: 8px
+    }
+
+    pre {
+      background: #0d1117 !important;
+      color: #c9d1d9;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="topbar">
-  <div id="progressCount">⭐ Loading...</div>
-  <button id="toggle">🌙</button>
-</div>
+  <div id="topbar">
+    <div id="progressCount">✔ Loading...</div>
+    <button id="toggle">🌙</button>
+  </div>
 
-<div id="main">
-  <div id="sidebar"><div id="tree"></div></div>
-  <div id="view">📘 Select a file</div>
-</div>
+  <div id="main">
+    <div id="sidebar">
+      <div id="tree"></div>
+    </div>
+    <div id="view">📘 Select a file</div>
+  </div>
 
-<script>
-const ROOT="StriverA2Z";
-const TOTAL_COUNT_KEY="totalFileCount";
-const LAST_VISITED_KEY="lastVisitedFile";
+  <script>
+    const ROOT = "StriverA2Z";
+    const TOTAL_COUNT_KEY = "totalFileCount";
+    const solvedKey = p => `solved:${p}`;
 
-const tree=document.getElementById("tree");
-const view=document.getElementById("view");
-const toggle=document.getElementById("toggle");
-const progressEl=document.getElementById("progressCount");
+    const tree = document.getElementById("tree");
+    const view = document.getElementById("view");
+    const toggle = document.getElementById("toggle");
+    const progressEl = document.getElementById("progressCount");
 
-let TOTAL_FILES = Number(localStorage.getItem(TOTAL_COUNT_KEY)) || null;
+    let TOTAL_FILES = Number(localStorage.getItem(TOTAL_COUNT_KEY)) || null;
 
-/* ===== THEME ===== */
-if(localStorage.theme==="dark"){
-  document.body.classList.add("dark");
-  toggle.textContent="☀️";
-}
-toggle.onclick=()=>{
-  document.body.classList.toggle("dark");
-  toggle.textContent=document.body.classList.contains("dark")?"☀️":"🌙";
-  localStorage.theme=document.body.classList.contains("dark")?"dark":"light";
-};
+    /* ===== THEME ===== */
+    if (localStorage.theme === "dark") {
+      document.body.classList.add("dark");
+      toggle.textContent = "☀️";
+    }
+    toggle.onclick = () => {
+      document.body.classList.toggle("dark");
+      toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+      localStorage.theme = document.body.classList.contains("dark") ? "dark" : "light";
+    };
 
-/* ===== HELPERS ===== */
-const solvedKey=p=>`solved:${p}`;
-const delay=t=>new Promise(r=>setTimeout(r,t));
+    /* ===== PROGRESS ===== */
+    function getSolvedCount() {
+      let c = 0;
+      for (const k in localStorage)
+        if (k.startsWith("solved:") && localStorage[k] === "true") c++;
+      return c;
+    }
 
-function getSolvedCount(){
-  let s=0;
-  for(const k in localStorage)
-    if(k.startsWith("solved:")&&localStorage[k]==="true") s++;
-  return s;
-}
+    function updateProgress() {
+      const solved = getSolvedCount();
+      progressEl.textContent = TOTAL_FILES
+        ? `✔ ${solved} / ${TOTAL_FILES}`
+        : `✔ ${solved} / …`;
+    }
 
-function updateProgress(){
-  const solved=getSolvedCount();
-  progressEl.textContent = TOTAL_FILES
-    ? `⭐ ${solved} / ${TOTAL_FILES}`
-    : `⭐ ${solved} / …`;
-}
+    /* ===== HELPERS ===== */
+    function extractLinks(t) {
+      return [...new Set(
+        (t.match(/https?:\/\/[^\s]+/g) || [])
+          .map(u => u.replace(/[)\],.;:]+$/g, ""))
+      )];
+    }
+    function faviconURL(u) {
+      try {
+        return `https://www.google.com/s2/favicons?sz=64&domain=${new URL(u).hostname}`;
+      } catch { return ""; }
+    }
+    async function loadFolder(p) {
+      return fetch(`${p}/index.json`).then(r => r.json());
+    }
 
-function extractLinks(text){
-  const regex=/(https?:\/\/[^\s]+)/g;
-  const matches=text.match(regex)||[];
-  return [...new Set(matches.map(u=>u.replace(/[)\],.;:]+$/g,"")))];
-}
+    /* ===== BACKGROUND TOTAL COUNT ===== */
+    async function countAllFiles(folder) {
+      let c = 0;
+      const data = await loadFolder(folder);
+      for (const i of data) {
+        if (i.type === "file" && (i.name.endsWith(".java") || i.name.endsWith(".md"))) c++;
+        if (i.type === "folder") c += await countAllFiles(`${folder}/${i.name}`);
+      }
+      return c;
+    }
 
-function faviconURL(url){
-  try{
-    return `https://www.google.com/s2/favicons?sz=64&domain=${new URL(url).hostname}`;
-  }catch{return "";}
-}
+    /* ===== TREE ===== */
+    function createItem(item, base = "") {
+      const full = base + item.name;
+      const track = item.type === "file" && (item.name.endsWith(".java") || item.name.endsWith(".md"));
+      const solved = localStorage.getItem(solvedKey(full)) === "true";
 
-async function loadFolder(p){
-  return fetch(`${p}/index.json`).then(r=>r.json());
-}
+      const row = document.createElement("div");
+      row.className = "tree-item";
+      row.dataset.path = full;
 
-/* ===== BACKGROUND COUNT ===== */
-async function countAllFiles(folder){
-  let c=0;
-  const data=await loadFolder(folder);
-  for(const i of data){
-    if(i.type==="file"&&(i.name.endsWith(".java")||i.name.endsWith(".md"))) c++;
-    if(i.type==="folder") c+=await countAllFiles(`${folder}/${i.name}`);
-  }
-  return c;
-}
-
-/* ===== TREE ===== */
-function createItem(item,base=""){
-  const fullPath=base+item.name;
-  const track=item.type==="file"&&(item.name.endsWith(".java")||item.name.endsWith(".md"));
-  const solved=localStorage.getItem(solvedKey(fullPath))==="true";
-
-  const row=document.createElement("div");
-  row.className="tree-item";
-  row.dataset.path=fullPath;
-
-  row.innerHTML=`
-    <span class="chevron">${item.type==="folder"?"▶":""}</span>
-    ${track?`<span class="star ${solved?"solved":""}">★</span>`:`<span class="star"></span>`}
-    <span class="icon">${item.type==="folder"?"📁":"📄"}</span>
+      row.innerHTML = `
+    <span class="chevron">${item.type === "folder" ? "▶" : ""}</span>
+    ${track ? `<span class="cb ${solved ? "checked" : ""}"></span>` : `<span style="width:16px"></span>`}
+    <span class="icon">${item.type === "folder" ? "📁" : "📄"}</span>
     <span class="label">${item.name}</span>
   `;
 
-  if(item.type==="folder"){
-    let open=false,container;
-    row.onclick=async()=>{
-      if(!container){
-        const data=await loadFolder(`${ROOT}/${fullPath}`);
-        container=document.createElement("div");
-        container.className="children";
-        data.forEach(c=>container.appendChild(createItem(c,`${fullPath}/`)));
-        row.after(container);
-      }
-      open=!open;
-      row.querySelector(".chevron").textContent=open?"▼":"▶";
-      container.style.display=open?"block":"none";
-    };
-  }else{
-    const starEl = row.querySelector(".star");
-if (starEl) {
-  starEl.onclick = e => {
-    e.stopPropagation();
-    const s = !starEl.classList.contains("solved");
-    starEl.classList.toggle("solved", s);
-    localStorage.setItem(solvedKey(fullPath), s);
-    updateProgress();
-  };
-}
+      if (item.type === "folder") {
+        let open = false, cont;
+        row.onclick = async () => {
+          if (!cont) {
+            const d = await loadFolder(`${ROOT}/${full}`);
+            cont = document.createElement("div");
+            cont.className = "children";
+            d.forEach(c => cont.appendChild(createItem(c, `${full}/`)));
+            row.after(cont);
+          }
+          open = !open;
+          row.querySelector(".chevron").textContent = open ? "▼" : "▶";
+          cont.style.display = open ? "block" : "none";
+        };
+      } else {
+        const cb = row.querySelector('.cb');
+        if (cb) {
+          cb.onclick = e => {
+            e.stopPropagation();
+            const s = !cb.classList.contains('checked');
+            cb.classList.toggle('checked', s);
+            localStorage.setItem(solvedKey(full), s);
 
+            // 👇 editor checkbox sync IF same file open
+            const openEditorCheckbox = view.querySelector('.editor-checkbox');
+            if (
+              openEditorCheckbox &&
+              view.querySelector('.file-header')?.textContent === item.name
+            ) {
+              openEditorCheckbox.classList.toggle('checked', s);
+            }
 
-    row.onclick=async()=>{
-      localStorage.setItem(LAST_VISITED_KEY,fullPath);
-      document.querySelectorAll(".tree-item.active").forEach(x=>x.classList.remove("active"));
-      row.classList.add("active");
+            updateProgress();
+          };
 
-      const txt=await fetch(`${ROOT}/${fullPath}`).then(r=>r.text());
-      const links=extractLinks(txt);
-      const isSolved=localStorage.getItem(solvedKey(fullPath))==="true";
-
-      view.innerHTML=`
-        <div class="file-header">${item.name}</div>
-
-        <div class="editor-actions">
-          ${links.map(l=>`
-            <img class="link-logo"
-                 src="${faviconURL(l)}"
-                 title="${l}"
-                 data-link="${l}" />
-          `).join("")}
-          <button class="copy-btn">Copy</button>
-          <span class="editor-star ${isSolved?"solved":""}">★</span>
-        </div>
-
-        ${item.name.endsWith(".md")
-          ? marked.parse(txt)
-          : `<pre><code class="language-java">${txt.replace(/</g,"&lt;")}</code></pre>`
         }
+
+        row.onclick = async () => {
+          document.querySelectorAll('.tree-item.active').forEach(x => x.classList.remove('active'));
+          row.classList.add('active');
+
+          const txt = await fetch(`${ROOT}/${full}`).then(r => r.text());
+          const links = extractLinks(txt);
+          const isSolved = localStorage.getItem(solvedKey(full)) === "true";
+
+          view.innerHTML = `
+        <div class="file-header">${item.name}</div>
+        <div class="editor-actions">
+          ${links.map(l => `<img class="link-logo" src="${faviconURL(l)}" data-link="${l}" />`).join("")}
+          <button class="copy-btn">Copy</button>
+          <span class="cb editor-checkbox ${isSolved ? "checked" : ""}"></span>
+        </div>
+        ${item.name.endsWith('.md')
+              ? marked.parse(txt)
+              : `<pre><code class="language-java">${txt.replace(/</g, "&lt;")}</code></pre>`
+            }
       `;
 
-      Prism.highlightAll();
+          Prism.highlightAll();
 
-      const copyBtn=view.querySelector(".copy-btn");
-      copyBtn.onclick=()=>{
-        navigator.clipboard.writeText(txt);
-        copyBtn.textContent="Copied";
-        setTimeout(()=>copyBtn.textContent="Copy",3000);
-      };
+          const copyBtn = view.querySelector('.copy-btn');
 
-      view.querySelectorAll(".link-logo").forEach(img=>{
-        img.onclick=()=>window.open(img.dataset.link,"_blank","noopener,noreferrer");
-      });
+          copyBtn.onclick = () => {
+            navigator.clipboard.writeText(txt);
 
-      const editorStar=view.querySelector(".editor-star");
-      editorStar.onclick=()=>{
-        const s=!editorStar.classList.contains("solved");
-        editorStar.classList.toggle("solved",s);
-        localStorage.setItem(solvedKey(fullPath),s);
-        updateProgress();
-        document.querySelector(
-          `.tree-item[data-path="${fullPath}"] .star`
-        )?.classList.toggle("solved",s);
-      };
-    };
-  }
-  return row;
-}
+            const oldText = copyBtn.textContent;
+            copyBtn.textContent = "Copied";
 
-/* ===== RESTORE LAST VISITED ===== */
-async function openPathAndSelect(path){
-  const parts=path.split("/");
-  let container=tree,base="";
-  for(let i=0;i<parts.length;i++){
-    const n=[...container.children].find(x=>x.dataset.path===base+parts[i]);
-    if(!n) return;
-    if(i<parts.length-1){
-      n.click();await delay(150);
-      container=n.nextSibling;base+=parts[i]+"/";
-    }else n.click();
-  }
-}
+            setTimeout(() => {
+              copyBtn.textContent = oldText;
+            }, 3000);
+          };
 
-/* ===== INIT ===== */
-(async()=>{
-  updateProgress(); // cached count if available
 
-  const root=await loadFolder(ROOT);
-  root.forEach(i=>tree.appendChild(createItem(i)));
+          view.querySelectorAll('.link-logo').forEach(i => {
+            i.onclick = () => window.open(i.dataset.link, '_blank', 'noopener');
+          });
 
-  const last=localStorage.getItem(LAST_VISITED_KEY);
-  if(last) openPathAndSelect(last);
-
-  // background recount
-  (async()=>{
-    const fresh=await countAllFiles(ROOT);
-    if(fresh!==TOTAL_FILES){
-      TOTAL_FILES=fresh;
-      localStorage.setItem(TOTAL_COUNT_KEY,fresh);
-      updateProgress();
+          const ecb = view.querySelector('.editor-checkbox');
+          ecb.onclick = () => {
+            const s = !ecb.classList.contains('checked');
+            ecb.classList.toggle('checked', s);
+            localStorage.setItem(solvedKey(full), s);
+            row.querySelector('.cb')?.classList.toggle('checked', s);
+            updateProgress();
+          };
+        };
+      }
+      return row;
     }
-  })();
-})();
-</script>
+
+    /* ===== INIT ===== */
+    (async () => {
+      updateProgress();
+
+      const root = await loadFolder(ROOT);
+      root.forEach(i => tree.appendChild(createItem(i)));
+
+      (async () => {
+        const fresh = await countAllFiles(ROOT);
+        if (fresh !== TOTAL_FILES) {
+          TOTAL_FILES = fresh;
+          localStorage.setItem(TOTAL_COUNT_KEY, fresh);
+          updateProgress();
+        }
+      })();
+    })();
+  </script>
 
 </body>
+
 </html>
