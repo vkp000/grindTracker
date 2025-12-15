@@ -1,14 +1,22 @@
 [
   {
-    "name": "BubbleSort.java",
+    "name": "Bubble_Sort.java",
     "type": "file"
   },
   {
-    "name": "InsertionSort.java",
+    "name": "Bubble_Sort_Using_Recursion.java",
     "type": "file"
   },
   {
-    "name": "SelectionSorting.java",
+    "name": "Insertion_Sort.java",
+    "type": "file"
+  },
+  {
+    "name": "Merge_Sort.java",
+    "type": "file"
+  },
+  {
+    "name": "Selection_Sorting.java",
     "type": "file"
   }
 ]
