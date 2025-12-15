@@ -1,5 +1,13 @@
 [
   {
+    "name": "BubbleSort.java",
+    "type": "file"
+  },
+  {
+    "name": "InsertionSort.java",
+    "type": "file"
+  },
+  {
     "name": "SelectionSorting.java",
     "type": "file"
   }
