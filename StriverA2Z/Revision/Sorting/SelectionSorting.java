@@ -8,11 +8,13 @@ class Solution {
             int key = i;
             for (int j = i + 1; j < arr.length; j++) {
 
-                if (arr[j] < arr[key]) {
+                if (arr[j] < arr[key]) {   // <---------- the main thing to focus
                     key = j;
                 }
 
             }
+
+            // swap happens for each outer loop 
             int temp = arr[key];
             arr[key] = arr[i];
             arr[i] = temp;
