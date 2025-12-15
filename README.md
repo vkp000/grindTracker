@@ -5,6 +5,9 @@ GrindTracker is a **study-tracking helper project** designed to monitor and orga
 This project is especially useful for **students, coding learners, DSA aspirants, and study groups** who want to track progress topic-wise and stay disciplined throughout their preparation.
 
 ---
+<img width="1893" height="854" alt="image" src="https://github.com/user-attachments/assets/d0ac6030-be06-4048-92be-7b61c9b8f15c" />
+
+---
 
 ## 🎯 Project Objective
 
