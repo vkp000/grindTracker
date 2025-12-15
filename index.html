@@ -89,16 +89,22 @@ body:not(.dark) .file-header{background:#eef2f7}
   display:flex;justify-content:flex-end;align-items:center;
   gap:8px;margin-bottom:10px;
 }
+
 .link-logo{
-  width:22px;height:22px;border-radius:4px;
-  cursor:pointer;background:#fff;padding:2px;
+  width:22px;height:22px;
+  border-radius:4px;
+  cursor:pointer;
+  background:#fff;
+  padding:2px;
   border:1px solid var(--border);
 }
+
 .copy-btn{
   font-size:12px;padding:4px 10px;border-radius:6px;
   border:1px solid var(--border);
   background:rgba(0,0,0,.6);color:white;cursor:pointer;
 }
+
 .editor-star{
   font-size:18px;cursor:pointer;opacity:.4;
   width:32px;height:28px;
@@ -110,6 +116,7 @@ body:not(.dark) .file-header{background:#eef2f7}
 pre{
   background:#0d1117!important;color:#c9d1d9;
   padding:16px;border-radius:8px;
+  overflow-x:auto;line-height:1.6;
 }
 .token.comment{
   color:rgba(106,153,85,.85)!important;
@@ -163,11 +170,24 @@ function getSolvedCount(){
     if(k.startsWith("solved:")&&localStorage[k]==="true") s++;
   return s;
 }
+
 function updateProgress(){
   const solved=getSolvedCount();
-  progressEl.textContent=TOTAL_FILES
+  progressEl.textContent = TOTAL_FILES
     ? `⭐ ${solved} / ${TOTAL_FILES}`
     : `⭐ ${solved} / …`;
+}
+
+function extractLinks(text){
+  const regex=/(https?:\/\/[^\s]+)/g;
+  const matches=text.match(regex)||[];
+  return [...new Set(matches.map(u=>u.replace(/[)\],.;:]+$/g,"")))];
+}
+
+function faviconURL(url){
+  try{
+    return `https://www.google.com/s2/favicons?sz=64&domain=${new URL(url).hostname}`;
+  }catch{return "";}
 }
 
 async function loadFolder(p){
@@ -188,6 +208,7 @@ async function countAllFiles(folder){
 /* ===== TREE ===== */
 function createItem(item,base=""){
   const fullPath=base+item.name;
+  const track=item.type==="file"&&(item.name.endsWith(".java")||item.name.endsWith(".md"));
   const solved=localStorage.getItem(solvedKey(fullPath))==="true";
 
   const row=document.createElement("div");
@@ -196,7 +217,7 @@ function createItem(item,base=""){
 
   row.innerHTML=`
     <span class="chevron">${item.type==="folder"?"▶":""}</span>
-    ${item.type==="file"?`<span class="star ${solved?"solved":""}">★</span>`:`<span class="star"></span>`}
+    ${track?`<span class="star ${solved?"solved":""}">★</span>`:`<span class="star"></span>`}
     <span class="icon">${item.type==="folder"?"📁":"📄"}</span>
     <span class="label">${item.name}</span>
   `;
@@ -216,27 +237,76 @@ function createItem(item,base=""){
       container.style.display=open?"block":"none";
     };
   }else{
+    const starEl = row.querySelector(".star");
+if (starEl) {
+  starEl.onclick = e => {
+    e.stopPropagation();
+    const s = !starEl.classList.contains("solved");
+    starEl.classList.toggle("solved", s);
+    localStorage.setItem(solvedKey(fullPath), s);
+    updateProgress();
+  };
+}
+
+
     row.onclick=async()=>{
       localStorage.setItem(LAST_VISITED_KEY,fullPath);
       document.querySelectorAll(".tree-item.active").forEach(x=>x.classList.remove("active"));
       row.classList.add("active");
 
       const txt=await fetch(`${ROOT}/${fullPath}`).then(r=>r.text());
+      const links=extractLinks(txt);
+      const isSolved=localStorage.getItem(solvedKey(fullPath))==="true";
+
       view.innerHTML=`
         <div class="file-header">${item.name}</div>
+
         <div class="editor-actions">
+          ${links.map(l=>`
+            <img class="link-logo"
+                 src="${faviconURL(l)}"
+                 title="${l}"
+                 data-link="${l}" />
+          `).join("")}
           <button class="copy-btn">Copy</button>
-          <span class="editor-star ${solved?"solved":""}">★</span>
+          <span class="editor-star ${isSolved?"solved":""}">★</span>
         </div>
-        <pre><code class="language-java">${txt.replace(/</g,"&lt;")}</code></pre>
+
+        ${item.name.endsWith(".md")
+          ? marked.parse(txt)
+          : `<pre><code class="language-java">${txt.replace(/</g,"&lt;")}</code></pre>`
+        }
       `;
+
       Prism.highlightAll();
+
+      const copyBtn=view.querySelector(".copy-btn");
+      copyBtn.onclick=()=>{
+        navigator.clipboard.writeText(txt);
+        copyBtn.textContent="Copied";
+        setTimeout(()=>copyBtn.textContent="Copy",3000);
+      };
+
+      view.querySelectorAll(".link-logo").forEach(img=>{
+        img.onclick=()=>window.open(img.dataset.link,"_blank","noopener,noreferrer");
+      });
+
+      const editorStar=view.querySelector(".editor-star");
+      editorStar.onclick=()=>{
+        const s=!editorStar.classList.contains("solved");
+        editorStar.classList.toggle("solved",s);
+        localStorage.setItem(solvedKey(fullPath),s);
+        updateProgress();
+        document.querySelector(
+          `.tree-item[data-path="${fullPath}"] .star`
+        )?.classList.toggle("solved",s);
+      };
     };
   }
   return row;
 }
 
-/* ===== RESTORE LAST ===== */
+/* ===== RESTORE LAST VISITED ===== */
 async function openPathAndSelect(path){
   const parts=path.split("/");
   let container=tree,base="";
@@ -252,7 +322,7 @@ async function openPathAndSelect(path){
 
 /* ===== INIT ===== */
 (async()=>{
-  updateProgress(); // uses cached total if available
+  updateProgress(); // cached count if available
 
   const root=await loadFolder(ROOT);
   root.forEach(i=>tree.appendChild(createItem(i)));
