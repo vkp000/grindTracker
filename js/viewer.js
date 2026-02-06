@@ -36,7 +36,7 @@ async function renderFile(full, name, row) {
       </div>
 
       <iframe
-        src="https://onecompiler.com/java"
+        src="https://codepen.io/calebnance/full/nXPaKN"
         loading="lazy"
         referrerpolicy="no-referrer">
       </iframe>
