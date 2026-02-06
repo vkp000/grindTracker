@@ -6,5 +6,9 @@
   {
     "name": "Sorting",
     "type": "folder"
+  },
+  {
+    "name": "demotrash",
+    "type": "folder"
   }
 ]
